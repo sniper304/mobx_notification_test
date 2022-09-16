@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition-property: background-color, font-size, transform, color;
+  transition-timing-function: ease-in-out;
+  transition-duration: 3s;
+}
+
+.form-wrapper {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .user-form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    font-size: 1.25rem;
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+
+      label, input, .error {
+        margin-bottom: 0.25rem;
+      }
+
+      &.is-invalid {
+        input {
+          border-color: red;
+        }
+      }
+
+      .error {
+        color: red;
+      }
+
+      input {
+        font-size: 1.25rem;
+
+        &:focus-visible {
+          outline-width: 0;
+        }
+      }
+    }
+
+    button {
+      font-size: 1.25rem;
+      margin-top: 1rem;
+    }
+  }
+}
+
+.d-none {
+  display: none;
+}
+
+
+.modal-overlay {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  bottom: 0;
+  background: #999;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  visibility: hidden;
+  transition: all 1s ease;
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    z-index: 100;
+  }
+}
+
+.modal {
+  position: absolute;
+  left: 10%;
+  background: #fff;
+  width: 80%;
+  height: 80%;
+  z-index: 5;
+  visibility: hidden;
+  top: -50%;
+  transition: all .5s ease-in-out;
+
+  .modal-controls {
+    .modal-close {
+      float: right;
+      padding: 10px;
+      cursor: pointer;
+    }
+  }
+
+  .modal-content {
+    padding: 1rem;
+  }
+
+  &.show {
+    visibility: visible;
+    z-index: 200;
+    opacity: 1;
+    top: 10%;
+  }
+}
